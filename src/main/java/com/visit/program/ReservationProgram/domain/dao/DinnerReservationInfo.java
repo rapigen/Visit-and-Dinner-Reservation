@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+/**
+ * database : dinner_reservation 와 매핑되는 클래스
+ * */
 @Getter
 @Setter
 @NoArgsConstructor

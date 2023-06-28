@@ -10,7 +10,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+/**
+ *석식 예약 게시글 수정을 위한 클래스
+ * */
 @Getter
 @Setter
 public class DinnerReservationUpdate {
