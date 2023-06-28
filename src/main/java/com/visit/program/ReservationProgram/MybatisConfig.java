@@ -15,6 +15,9 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
+/*
+* 마이바티스 설정 클래스
+* */
 @Configuration
 @Slf4j
 @MapperScan(value="com.visit.program.ReservationProgram",sqlSessionFactoryRef = "SqlSessionFactory")
