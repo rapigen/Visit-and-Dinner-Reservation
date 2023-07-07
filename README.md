@@ -1,1 +1,1 @@
-# Visit-and-Dinner-Reservation
+#  방문 예약, 석식 예약 관련 프로그램
