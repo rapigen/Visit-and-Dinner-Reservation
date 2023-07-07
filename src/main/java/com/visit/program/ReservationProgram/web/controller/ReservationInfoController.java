@@ -92,7 +92,7 @@ public class ReservationInfoController {
 
     @PostMapping("/save")
     public String saveInfo(@Valid @ModelAttribute(name = "visitor") SaveVisitor visitor, BindingResult bindingResult,Model model,HttpSession session) throws IllegalAccessException {
-        String path = "view/SaveForm";
+        String path = "visit/SaveForm";
         String wrongPhoneNumber = wrongPhoneNumber(visitor.getPhone_number());
         if(wrongPhoneNumber!=null){
             model.addAttribute("wrongPhoneNumber",wrongPhoneNumber);
