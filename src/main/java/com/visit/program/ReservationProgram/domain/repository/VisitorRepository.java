@@ -8,9 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 /**
- * 방문자 CRUD 관련 MAPPER 클래스. (경로 : mybatis/visitor_mapper.xml)
+ * 방문자 정보 관련 MAPPER 클래스.
+ * 대상 테이블 : visitor
+ * MAPPER 설정 파일 : visitor_mapper.xml
  * */
-
 @Mapper
 @Repository
 public interface VisitorRepository {

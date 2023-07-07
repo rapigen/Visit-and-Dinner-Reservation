@@ -42,7 +42,7 @@
     </select>
 
     <select id="findAllDatePerQty" resultType="com.visit.program.ReservationProgram.domain.dao.DatePerQty"
-            parameterType="com.visit.program.ReservationProgram.domain.dao.SelectDateDTO">
+            parameterType="com.visit.program.ReservationProgram.domain.dto.SelectDateDTO">
         select id, now_date,ifnull(real_qty,0) as real_qty , qty,concat(SUBSTR( _UTF8'일월화수목금토', DAYOFWEEK(now_date), 1),'요일') as dayOfTheWeek, ifnull(qty-real_qty,qty) as last_qty from date_of_qty d
         left join (select sum(qty) as real_qty, visit_date from dinner_reservation group by visit_date) v on now_date = v.visit_date
         <where>

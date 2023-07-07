@@ -1,13 +1,10 @@
 package com.visit.program.ReservationProgram.domain.dao;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 /**
@@ -23,6 +20,7 @@ public class DinnerReservationUpdate {
     private String loginId;
     @NotEmpty
     private String employee_name;
+
 //    @NotEmpty
 //    @Pattern(regexp = "^0([0-9]{1,2})([0-9]{7,8})$")
     private String phone_number;

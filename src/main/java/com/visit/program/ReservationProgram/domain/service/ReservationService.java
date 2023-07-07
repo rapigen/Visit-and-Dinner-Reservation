@@ -14,7 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
+/**
+ * 방문예약 관련 Service 클래스
+ * Repository -> *Service -> Controller
+ * */
 @Service
 @Slf4j
 @RequiredArgsConstructor

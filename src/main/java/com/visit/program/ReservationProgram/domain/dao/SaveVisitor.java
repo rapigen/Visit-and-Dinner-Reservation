@@ -24,31 +24,31 @@ import java.util.List;
 public class SaveVisitor{
 
     @NotEmpty
-    private String employee_name;
+    private String employee_name;   //접견자 이름
     @NotEmpty
-    private String name;
+    private String name;    //방문자 이름
     @Pattern(regexp = "^([0-9]{1,20})$")
     @NotEmpty
-    private String phone_number;
-    private String company;
+    private String phone_number;    //연락처
+    private String company; //소속회사
     @NotEmpty
-    private String visit_date1;
+    private String visit_date1; //방문일자(FROM)
     @NotEmpty
-    private String visit_date2;
-    private String withPerson;
+    private String visit_date2; //방문일자(TO)
+    private String withPerson;  //동행자
     @NotEmpty
-    private String purpose;
+    private String purpose; //방문 목적
     @NotEmpty
-    private String loginId;
+    private String loginId; //접견자의 그룹웨어 아이디
     @NotEmpty
-    private String password;
+    private String password;    //해당 게시글의 임시 비밀번호
     @NotEmpty
-    private String passwordCheck;
+    private String passwordCheck;   //임시 지정한 비밀번호 확인용
 
-    private String write_date;
-    private int count;
-    private String revised_write_date;
-    private Boolean is_checked;
+    private String write_date;  //작성일
+    private int count;  //수정 횟수
+    private String revised_write_date;  //수정일자
+    private Boolean is_checked; //방문여부
 
     public SaveVisitor(String loginId, String password,String passwordCheck, String employee_name, String name, String phone_number, String company, String visit_date1, String visit_date2, String withPerson, String purpose) {
         this.loginId = loginId;

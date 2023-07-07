@@ -1,7 +1,11 @@
 package com.visit.program.ReservationProgram.domain.dao;
 
 import lombok.*;
-//일자당 등록 가능 인원 수 셋팅
+
+/**
+ * 일자당 등록 가능 인원 수 셋팅
+ *
+ * */
 @Getter
 @Setter
 @AllArgsConstructor

@@ -16,11 +16,11 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class UpdateEmployeeDTO {
     @NotNull
-    private Long id;
+    private Long id;    //아이디
     @NotEmpty
-    private String loginId;
+    private String loginId; //로그인아이디
     @NotEmpty
-    private String employee_name;
+    private String employee_name;   //이름
     @NotEmpty
     private String beforePassword;  //기존 비밀번호
 

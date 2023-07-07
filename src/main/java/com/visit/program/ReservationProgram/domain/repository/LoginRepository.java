@@ -1,16 +1,16 @@
 package com.visit.program.ReservationProgram.domain.repository;
 
-import com.visit.program.ReservationProgram.domain.dao.Employee;
-import com.visit.program.ReservationProgram.domain.dto.Login;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 /**
- * 로그인 조회 관련 MAPPER 클래스. (경로 : mybatis/login_mapper.xml)
- * 함수명 동일하게 하면 클래스와 쿼리문이 매핑됨.
+ * 해당 게시글에 대한 작성자 조회 및 확인하기 위한 로그인 클래스
+ * 대상 테이블 : employee,visitor,dinner_reservation
+ * MAPPER 설정 파일 : login_mapper.xml
  * */
+
+
 @Mapper
 @Repository
 public interface LoginRepository {

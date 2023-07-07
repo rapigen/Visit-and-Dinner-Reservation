@@ -2,8 +2,8 @@ package com.visit.program.ReservationProgram.domain.service;
 
 import com.visit.program.ReservationProgram.domain.dao.*;
 import com.visit.program.ReservationProgram.domain.dto.DinnerInfoDTO;
+import com.visit.program.ReservationProgram.domain.dto.SelectDateDTO;
 import com.visit.program.ReservationProgram.domain.repository.DinnerRepository;
-import com.visit.program.ReservationProgram.domain.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
+/**
+ * 석식 예약 정보 저장, 조회 하는 Service 클래스
+ * Repository -> *Service -> Controller
+ * */
 @Service
 @Slf4j
 @RequiredArgsConstructor

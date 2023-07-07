@@ -9,8 +9,19 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import java.util.List;
+
 /**
- * 방문자+직원 CRUD 관련 MAPPER 클래스. (경로 : mybatis/reservation_info_mapper.xml)
+ * 방문자 + 직원 정보 내역 관련 MAPPER 클래스
+ * 대상 테이블 : employee,visitor,dinner_reservation
+ * MAPPER 설정 파일 : reservation_info_mapper.xml
+ * */
+
+
+
+/**
+ * 방문자+직원 CRUD 관련 MAPPER 클래스.
+ * 대상 테이블 : Reservation_info , employee , visitor
+ * MAPPER 설정 파일 : reservation_info_mapper.xml
  * */
 @Mapper
 @Repository

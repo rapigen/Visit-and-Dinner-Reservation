@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+/**
+ * 직원 정보 저장, 조회 하는 Service 클래스
+ * Repository -> *Service -> Controller
+ * */
 @Service
 @Slf4j
 @RequiredArgsConstructor
