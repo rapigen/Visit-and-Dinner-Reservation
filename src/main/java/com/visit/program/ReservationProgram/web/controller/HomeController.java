@@ -16,7 +16,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * 석식, 방문예약 별 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Controller
 @Slf4j
 @RequiredArgsConstructor

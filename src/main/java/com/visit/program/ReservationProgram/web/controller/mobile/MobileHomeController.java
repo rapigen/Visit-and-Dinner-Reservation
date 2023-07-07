@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+/**
+ * 모바일버전 석식, 방문예약 별 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Controller
 @Slf4j
 @RequiredArgsConstructor

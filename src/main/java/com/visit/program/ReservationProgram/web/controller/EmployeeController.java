@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.HashMap;
-
+/**
+ * 직원 정보 관련 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Controller
 @Slf4j
 @RequiredArgsConstructor

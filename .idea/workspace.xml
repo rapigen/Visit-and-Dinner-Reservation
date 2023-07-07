@@ -5,35 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88d2663b-2719-410c-8df3-89f89f8d63ff" name="Changes" comment="0707 commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/DateOfQty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/DateOfQty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/DinnerReservationUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/DinnerReservationUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/ReservationInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/ReservationInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SaveDinnerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SaveDinnerInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SaveEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SaveEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SaveReservationInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SaveReservationInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SaveVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SaveVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/SelectDateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dto/SelectDateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/UpdateDateOfQty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/UpdateDateOfQty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/session/SessionConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dao/session/SessionConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dto/DinnerInfoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dto/DinnerInfoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dto/MyReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dto/MyReservationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dto/UpdateEmployeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/dto/UpdateEmployeeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/DinnerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/DinnerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/EmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/LoginRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/ReservationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/VisitorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/repository/VisitorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/DinnerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/DinnerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/VisitorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/domain/service/VisitorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/DinnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/DinnerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/dinner_mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/dinner_mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/ErrorCountMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/ErrorCountMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/MyErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/MyErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/ReservationInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/ReservationInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/mobile/MobileHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/mobile/MobileHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/mobile/MobileLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/mobile/MobileLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/mobile/MobileReservationInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/visit/program/ReservationProgram/web/controller/mobile/MobileReservationInfoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +166,7 @@
       <workItem from="1688601893900" duration="17989000" />
       <workItem from="1688689483824" duration="5572000" />
       <workItem from="1688703100377" duration="199000" />
-      <workItem from="1688703325761" duration="3674000" />
+      <workItem from="1688703325761" duration="4115000" />
     </task>
     <task id="LOCAL-00001" summary="0628 commit">
       <created>1687940218064</created>
@@ -222,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688696254772</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="0707 commit">
+      <created>1688707030724</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688707030724</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

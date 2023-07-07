@@ -30,7 +30,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import static com.visit.program.ReservationProgram.domain.dao.session.SessionConst.ACCESS_METHOD;
-
+/**
+ * 방문예약 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Controller
 @Slf4j
 @RequiredArgsConstructor

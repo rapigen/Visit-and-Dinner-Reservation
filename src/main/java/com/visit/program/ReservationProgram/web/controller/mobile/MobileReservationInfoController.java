@@ -27,7 +27,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Pattern;
-
+/**
+ * 모바일버전 방문예약 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Controller
 @Slf4j
 @RequiredArgsConstructor

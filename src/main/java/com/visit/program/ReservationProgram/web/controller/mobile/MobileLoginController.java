@@ -16,7 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.UUID;
-
+/**
+ * 모바일버전 로그인 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Slf4j
 @Controller
 @RequiredArgsConstructor

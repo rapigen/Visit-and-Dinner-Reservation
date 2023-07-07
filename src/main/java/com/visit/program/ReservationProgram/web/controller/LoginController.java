@@ -24,7 +24,10 @@ import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
-
+/**
+ * 로그인 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Slf4j
 @Controller
 @RequiredArgsConstructor

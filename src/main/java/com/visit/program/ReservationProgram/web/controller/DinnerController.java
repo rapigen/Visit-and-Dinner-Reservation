@@ -33,7 +33,10 @@ import java.util.List;
 import java.util.UUID;
 
 import static java.lang.Boolean.TRUE;
-
+/**
+ * 석식예약 관련 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Controller
 @Slf4j
 @RequestMapping("/dinner/info")

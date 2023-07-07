@@ -10,6 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+/**
+ * 에러 카운트 하여 메세지로 표시해주는 추상 클래스
+ * 형식에 맞지 않거나 필수값인데 빈값으로 입력한 경우 count 1개씩 증가 -> 해당 내용에 대하여 표시해줌
+ * */
 @Slf4j
 public abstract class ErrorCountMsg {
 

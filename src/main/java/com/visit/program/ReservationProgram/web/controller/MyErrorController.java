@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.BindException;
-
+/**
+ * 에러 처리 별 Controller 클래스
+ * Repository -> Service -> *Controller
+ * */
 @Slf4j
 @ControllerAdvice
 @RequestMapping("/error")
