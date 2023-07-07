@@ -49,7 +49,7 @@ public class ReservationInfoController {
     @GetMapping("/{employee_id}/all")
     public String viewMyVisitors(@PathVariable("employee_id") Long employee_id, @ModelAttribute("reservationDTO") MyReservationDTO reservationDTO, Model model
     ){
-        String path =  "view/viewMyVisitor";
+        String path =  "visit/viewMyVisitor";
         String loginId = employeeService.findById(employee_id).getLoginId();
         reservationDTO.setEmployee_id(employee_id);
         List<Reservation> reservations = reservationService.findMyVisitors(reservationDTO);
@@ -60,7 +60,7 @@ public class ReservationInfoController {
     }
     @GetMapping("/save")
     public String saveInfo(@ModelAttribute("visitor")SaveVisitor visitor,HttpSession session){
-        String path = "view/SaveForm";
+        String path = "visit/SaveForm";
         setData(visitor, session);
         path = PathChange.setAccessMethod(session.getAttribute(ACCESS_METHOD).toString(),path);
         return path;
@@ -154,12 +154,12 @@ public class ReservationInfoController {
         model.addAttribute("reservation", reservationInfo);
         session.removeAttribute(SessionConst.LOGIN_SUCCESS);
         session.removeAttribute(SessionConst.DINNER_PROGRAM);
-        return "view/ViewOne";
+        return "visit/ViewOne";
     }
 
     @GetMapping("/update/{reservationId}")
     public String updateInfo(@PathVariable("reservationId") Long reservationId,@SessionAttribute(ACCESS_METHOD)String access, Model model) {
-        String url = "view/UpdateForm";
+        String url = "visit/UpdateForm";
 
         Reservation reservation = reservationService.findOne(reservationId);
         Visitor beforeVisitor = visitorService.findOne(reservation.getVisitor_id());
@@ -181,11 +181,11 @@ public class ReservationInfoController {
         int count = updateVisitor.getCount();
         ReviseCountEx(count);
         NoModificationEx(reservationId,updateVisitor);
-        String url = "view/UpdateForm";
+        String url = "visit/UpdateForm";
         if (bindingResult.hasErrors()) {
-            url = PathChange.setAccessMethod(session.getAttribute(ACCESS_METHOD).toString(),"view/UpdateForm");
+            url = PathChange.setAccessMethod(session.getAttribute(ACCESS_METHOD).toString(),"visit/UpdateForm");
             log.info("url={}",url);
-            return "view/UpdateForm";
+            return "visit/UpdateForm";
         }
             visitorService.updateInfo(updateVisitor);
             session.removeAttribute(SessionConst.LOGIN_SUCCESS);
