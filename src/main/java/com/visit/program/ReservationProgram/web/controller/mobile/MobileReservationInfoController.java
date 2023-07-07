@@ -50,11 +50,11 @@ public class MobileReservationInfoController {
         List<Reservation> reservations = reservationService.findMyVisitors(reservationDTO);
         model.addAttribute("reservations",reservations);
         model.addAttribute("loginId",loginId);
-        return "mobile/view/viewMyVisitor";
+        return "mobile/visit/viewMyVisitor";
     }
     @GetMapping("/save")
     public String saveInfo(@ModelAttribute("visitor")SaveVisitor visitor,HttpSession session){
-        String path = "mobile/view/SaveForm";
+        String path = "mobile/visit/SaveForm";
         setData(visitor, session);
         return path;
     }
@@ -75,7 +75,7 @@ public class MobileReservationInfoController {
     @PostMapping("/save")
     public String saveInfo(@Valid @ModelAttribute(name = "visitor") SaveVisitor visitor, BindingResult bindingResult,Model model,HttpSession session
     ) throws IllegalAccessException {
-        String path = "mobile/view/SaveForm";
+        String path = "mobile/visit/SaveForm";
         String wrongPhoneNumber = wrongPhoneNumber(visitor.getPhone_number());
         if(wrongPhoneNumber!=null){
             model.addAttribute("wrongPhoneNumber",wrongPhoneNumber);
@@ -136,7 +136,7 @@ public class MobileReservationInfoController {
         model.addAttribute("reservation", reservationInfo);
         session.removeAttribute(SessionConst.LOGIN_SUCCESS);
 
-        return "mobile/view/ViewOne";
+        return "mobile/visit/ViewOne";
     }
 
     @GetMapping("/update/{reservationId}")
@@ -147,7 +147,7 @@ public class MobileReservationInfoController {
         UpdateVisitor updateVisitor = updateVisitor(beforeVisitor);
         model.addAttribute("reservationId",reservationId);
         model.addAttribute("visitor",updateVisitor);
-        return "mobile/view/UpdateForm";
+        return "mobile/visit/UpdateForm";
     }
 
     @PostMapping("/update/{reservationId}")
@@ -158,7 +158,7 @@ public class MobileReservationInfoController {
         if (bindingResult.hasErrors()) {
             String s = bindingResult.getAllErrors().toString();
             log.info("errors={}",s);
-            return "mobile/view/UpdateForm";
+            return "mobile/visit/UpdateForm";
         }
         visitorService.updateInfo(updateVisitor);
         session.removeAttribute(SessionConst.LOGIN_SUCCESS);

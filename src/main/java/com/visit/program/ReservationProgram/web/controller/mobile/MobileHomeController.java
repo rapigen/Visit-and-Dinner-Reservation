@@ -38,10 +38,10 @@ public class MobileHomeController {
 
     @GetMapping("/reservation/info/all")
     public String viewAll(Model model,@ModelAttribute("reservationDTO")ReservationDTO reservationDTO,HttpSession session) {
-        String url = "mobile/view/All1";
+        String url = "mobile/visit/All1";
         session.removeAttribute(SessionConst.LOGIN_SUCCESS);
         if(session.getAttribute(SessionConst.ACCESS_ID).toString().contains("security")){
-            url = "mobile/view/All2";
+            url = "mobile/visit/All2";
             model.addAttribute("reservations",reservationService.findAllDTO2(reservationDTO));
              //경비실
         }

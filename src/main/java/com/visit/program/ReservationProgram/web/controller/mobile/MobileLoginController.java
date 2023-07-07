@@ -27,7 +27,7 @@ public class MobileLoginController {
 
     @GetMapping("/login/{reservationId}")
     public String login(@ModelAttribute("login")Login login){
-        return "mobile/view/Login";
+        return "mobile/visit/Login";
     }
     @PostMapping("/login/{reservationId}")
     public String login2(@PathVariable("reservationId")Long reservationId,@Valid @ModelAttribute("login")Login login,BindingResult bindingResult,
@@ -35,7 +35,7 @@ public class MobileLoginController {
         findEmployeeId(reservationId,login,bindingResult);
         if(bindingResult.hasErrors()){
             model.addAttribute("errorMsg","아이디 or 비밀번호가 틀렸습니다.");
-            return "mobile/view/Login";
+            return "mobile/visit/Login";
         }
         session.setAttribute(SessionConst.LOGIN_SUCCESS,UUID.randomUUID().toString());
         return "redirect:/m/reservation/info/update/"+reservationId;
