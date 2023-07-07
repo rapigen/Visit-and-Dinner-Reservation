@@ -1,6 +1,7 @@
 package com.visit.program.ReservationProgram.domain.service;
 
 import com.visit.program.ReservationProgram.domain.dao.Employee;
+import com.visit.program.ReservationProgram.domain.dao.SaveEmployee;
 import com.visit.program.ReservationProgram.domain.dto.Login;
 import com.visit.program.ReservationProgram.domain.repository.EmployeeRepository;
 import com.visit.program.ReservationProgram.domain.repository.LoginRepository;
@@ -17,6 +18,10 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
+    @Transactional
+    public void saveEmployee(SaveEmployee saveEmployee){
+        employeeRepository.saveEmployee(new Employee(saveEmployee.getLoginId(),saveEmployee.getPart_name(),null, saveEmployee.getEmployee_name(), null,saveEmployee.getPhone_number()));
+    }
     public Employee findById(Long id){
         return employeeRepository.findById(id);
     }

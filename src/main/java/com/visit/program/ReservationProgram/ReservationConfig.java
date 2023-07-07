@@ -22,7 +22,8 @@ public class ReservationConfig implements WebMvcConfigurer{
     public void addInterceptors(InterceptorRegistry registry) {
         //1. 세션 : 요청한 url에 진입하면 세션 생성됨. 그 이외의 경로로 진입시 접근 불가하도록 설정함
         registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/m/**","/reservation","/reservation/**","/reservation/info/**","/dinner/**").order(1).
-                excludePathPatterns("/reservation/info/all/rapigen_employee","/reservation/info/all/rapigen_security","/dinner/info/rapigen","/dinner/info/checkInfo","/dinner/info/confirm");
+                excludePathPatterns("/reservation/info/all/rapigen_employee","/reservation/info/all/rapigen_security","/dinner/info/rapigen",
+                        "/dinner/info/checkInfo","/dinner/info/confirm");
         //2. 모바일, 웹 : 요청 기기가 mobile이면 모바일 전용 view로 , web이면 웹 전용 view로 path 설정
         registry.addInterceptor(new MobileOrWebInterceptor()).addPathPatterns("/**").order(2).excludePathPatterns("/","/dinner/**");
         //3. 로그인  : 등록, 수정, 삭제, 상세 조회시 반드시 로그인을 통해서 들어가야 함.

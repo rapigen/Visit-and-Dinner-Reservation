@@ -27,9 +27,6 @@ public class HomeController {
     public String home(){return "해당 페이지에 접근할 수 없습니다. 다시 접속해주세요";}
 
 
-
-
-
     @ModelAttribute(name="renewDate")
     public String renewDate(){
         return  LocalDateTime.now().format(DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss"));
@@ -38,6 +35,7 @@ public class HomeController {
     @GetMapping("/reservation/info/all/rapigen_employee")
     public String viewEmployees(HttpSession session) {
         session.removeAttribute(SessionConst.ADMIN_ID);
+        session.removeAttribute(SessionConst.DINNER_PROGRAM);
         String uri = "redirect:/reservation/info/save";
         AccessIdNull(session, UUID.randomUUID().toString());
         return uri;
@@ -70,10 +68,10 @@ public class HomeController {
     @GetMapping("/reservation/info/all")
     public String viewAll(Model model,@ModelAttribute("reservationDTO")ReservationDTO reservationDTO,HttpSession session) {
         List<Reservation> reservations = null;
-        String url = "view/All1";
+        String url = "visit/All1";
         session.removeAttribute(SessionConst.LOGIN_SUCCESS);
         if(session.getAttribute(SessionConst.ACCESS_ID).toString().contains("security")){
-            url = "view/All2";
+            url = "visit/All2";
             reservations = reservationService.findAllDTO2(reservationDTO);
         }
         else{

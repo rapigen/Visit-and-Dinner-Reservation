@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
  * employee 테이블 매핑 클래스
  * */
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Employee {
     private Long id;
@@ -17,4 +16,13 @@ public class Employee {
     private String employee_name;
     private String password;
     private String phone_number;
+
+    public Employee(String loginId, String part_name, Boolean is_admin, String employee_name, String password, String phone_number) {
+        this.loginId = loginId;
+        this.part_name = part_name;
+        this.is_admin = is_admin;
+        this.employee_name = employee_name;
+        this.password = password;
+        this.phone_number = phone_number;
+    }
 }

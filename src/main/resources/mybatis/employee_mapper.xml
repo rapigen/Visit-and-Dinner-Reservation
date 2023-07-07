@@ -6,6 +6,10 @@
         select * from employee
     </select>
 
+    <insert id="saveEmployee" parameterType="com.visit.program.ReservationProgram.domain.dao.Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into employee(loginId, employee_name, part_name,phone_number) values(#{loginId},#{employee_name},#{part_name},#{phone_number})
+    </insert>
+
     <select id = "loginMember" resultType="java.lang.Long">
         select id from employee where loginId = #{loginId} and password  = #{password}
     </select>

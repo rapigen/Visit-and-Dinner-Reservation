@@ -23,8 +23,8 @@ public class DinnerReservationUpdate {
     private String loginId;
     @NotEmpty
     private String employee_name;
-    @NotEmpty
-    @Pattern(regexp = "^0([0-9]{1,2})([0-9]{7,8})$")
+//    @NotEmpty
+//    @Pattern(regexp = "^0([0-9]{1,2})([0-9]{7,8})$")
     private String phone_number;
     @NotEmpty
     private String visit_date;

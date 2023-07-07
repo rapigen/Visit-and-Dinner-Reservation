@@ -14,7 +14,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface EmployeeRepository {
-
+    void saveEmployee(Employee employee);
     void updatePassword(@Param("password")String password, @Param("id")Long id);    //비밀번호 변경
     String findByName(@Param("id")Long id); //이름 조회
 

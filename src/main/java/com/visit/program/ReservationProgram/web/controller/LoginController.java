@@ -41,7 +41,7 @@ public class LoginController {
 
     @GetMapping("/reservation/login/{reservationId}")
     public String login(@SessionAttribute(SessionConst.ACCESS_METHOD) String method, @PathVariable("reservationId") Long reservationId, @ModelAttribute("login") Login login) {
-        String url = "view/Login";
+        String url = "visit/Login";
         AbstractPath path = new AbstractPath() {
             @Override
             protected String call() {
@@ -57,7 +57,7 @@ public class LoginController {
         findEmployeeId(1, res.getVisitor_id(), login, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("errorMsg", "아이디 or 비밀번호가 틀렸습니다.");
-            return "view/Login";
+            return "visit/Login";
         }
         if (session.getAttribute(SessionConst.EMPLOYEE_ID) == null) {
             session.setAttribute(SessionConst.EMPLOYEE_ID, res.getEmployee_id());
@@ -70,7 +70,7 @@ public class LoginController {
     public String AdminLogin(@ModelAttribute("login") Login login,HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.removeAttribute(SessionConst.LOGIN_SUCCESS);
-        return "view2/Login";
+        return "dinner/Login";
     }
 
     @PostMapping("/dinner/info/admin")
@@ -84,12 +84,12 @@ public class LoginController {
             session.setAttribute(SessionConst.ADMIN_ID, UUID.randomUUID().toString().substring(0, 5) + "/" + emp.getId());
             return "redirect:/dinner/info/dateOfQty";
         }
-        return "view2/Login";
+        return "dinner/Login";
     }
 
     @GetMapping("/dinner/login/{id}")
     public String dinnerLogin(@PathVariable("id")Long id, @ModelAttribute("login")Login login){
-        return "view2/Login";
+        return "dinner/Login";
     }
 
     @PostMapping("/dinner/login/{id}")
@@ -99,7 +99,7 @@ public class LoginController {
         findEmployeeId(2,id,login,bindingResult);
         if(bindingResult.hasErrors()){
             model.addAttribute("errorMsg","아이디 or 비밀번호가 틀렸습니다.");
-            return "view2/Login";
+            return "dinner/Login";
         }
         HttpSession session = request.getSession();
         if(session.getAttribute(SessionConst.EMPLOYEE_ID)==null){

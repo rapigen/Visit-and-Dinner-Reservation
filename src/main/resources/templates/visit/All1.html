@@ -112,13 +112,12 @@
                                         <div id="btnArea">
                                             <br>
                                             <a th:href="@{/reservation/info/save}"> <button class="btn btn-primary btn-block"> 신규등록 </button></a>
+                                            <a th:href="@{/reservation/employee/save}"> <button class="btn btn-primary btn-block"> 직원등록 </button></a>
 
                                             <span th:if="${session.EMPLOYEE_ID!=null}">
                                                 <a th:href="@{/reservation/info/{employee_id}/all (employee_id=${session.EMPLOYEE_ID.toString()})}"> <button class="btn btn-primary btn-block"> 내 방문객 보기 </button></a>
                                             </span>
                                         </div>
-
-
                                     </div>
                                 </div>
                                 </div>

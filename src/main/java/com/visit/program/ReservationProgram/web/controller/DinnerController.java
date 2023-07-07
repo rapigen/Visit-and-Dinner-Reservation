@@ -3,6 +3,7 @@ package com.visit.program.ReservationProgram.web.controller;
 import com.visit.program.ReservationProgram.domain.dao.*;
 import com.visit.program.ReservationProgram.domain.dao.session.SessionConst;
 import com.visit.program.ReservationProgram.domain.dto.DinnerInfoDTO;
+import com.visit.program.ReservationProgram.domain.ex.AlreadyCheckedEx;
 import com.visit.program.ReservationProgram.domain.ex.ErrorMessage;
 import com.visit.program.ReservationProgram.domain.service.DinnerService;
 import com.visit.program.ReservationProgram.domain.service.EmployeeService;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.PrintWriter;
 import java.util.HashMap;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
@@ -40,12 +43,9 @@ public class DinnerController {
 
     private final DinnerService service;
     private final EmployeeService employeeService;
-    private final ThreadLocal<List<DinnerReservationInfo>> dinnerReservationInfoThreadLocal = new ThreadLocal<>();
-    private final ThreadLocal<List<DatePerQty>> datePerQtyThreadLocal = new ThreadLocal<>();
     private static DinnerInfoDTO dinnerInfoDTOStatic;
     @GetMapping("/rapigen")
     public String enterPage(HttpSession session){
-
         session.setAttribute(SessionConst.DINNER_PROGRAM,"dinner");
         session.setAttribute(SessionConst.ACCESS_ID, UUID.randomUUID().toString().substring(0,8));
         log.info("session={}",session.getAttribute(SessionConst.DINNER_PROGRAM));
@@ -60,19 +60,18 @@ public class DinnerController {
             dinnerInfoDTO.setVisit_date1(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             dinnerInfoDTO.setVisit_date2(LocalDateTime.now().plusDays(10).format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             dinnerInfoDTOStatic = dinnerInfoDTO;
-            reservations = service.findAll();
+//            reservations = service.findAll();
         }
         if(dinnerInfoDTO.getEmployee_name()!=null|| dinnerInfoDTO.getVisit_date2()!=null || dinnerInfoDTO.getVisit_date1()!=null){
             dinnerInfoDTOStatic = dinnerInfoDTO;
         }
         reservations = service.findAllDTO(dinnerInfoDTOStatic);
 
-        dinnerReservationInfoThreadLocal.set(reservations);
-        model.addAttribute("reservations",dinnerReservationInfoThreadLocal.get());
+        model.addAttribute("reservations",reservations);
         if(session.getAttribute(SessionConst.ADMIN_ID)!=null){
-            return "view2/All2";
+            return "dinner/All2";
         }
-        return "view2/All1";
+        return "dinner/All1";
     }
 
     @ModelAttribute(name="renewDate")
@@ -84,11 +83,10 @@ public class DinnerController {
 
     @ModelAttribute(name = "datePerQtyList")
     public  List<DatePerQty> datePerQtyList(@ModelAttribute("dateDTO")SelectDateDTO dateDTO){
-        datePerQtyThreadLocal.set(service.findAllDatePerQty(dateDTO));
         if(dateDTO.getVisit_date1()==null && dateDTO.getVisit_date2()==null){
-            datePerQtyThreadLocal.set(service.findAllDatePerQtyFrom7Days());
+           return service.findAllDatePerQtyFrom7Days();
         }
-        return datePerQtyThreadLocal.get();
+        return service.findAllDatePerQty(dateDTO);
     }
 
     @PostMapping("/send")
@@ -117,7 +115,7 @@ public class DinnerController {
 
     @GetMapping("/dateOfQty")
     public String dateOfQty(){
-        return "view2/ViewDateOfQty";
+        return "dinner/ViewDateOfQty";
     }
 
 
@@ -126,23 +124,33 @@ public class DinnerController {
         DateOfQty dateOfQty = service.selectDateOfQty(id);
         updateQty.setQty(dateOfQty.getQty());
         updateQty.setId(id);
-        return "view2/SetQty";
+        return "dinner/SetQty";
     }
     @PostMapping("/dateOfQty/{id}")
     public String searchDateOfQty(@ModelAttribute("updateQty")UpdateDateOfQty updateQty){
         service.updateDateOfQty(updateQty);
-//        List<DatePerQty> datePerQtyList = service.findAllDatePerQtyFrom14Days();
-//        model.addAttribute("datePerQtyList",datePerQtyList);
         return "redirect:/dinner/info/dateOfQty";
     }
 
 
     @GetMapping("/{now_date}/save")
-    public String vDatePerSave(@PathVariable("now_date")String now_date,@ModelAttribute("reservationSave")DinnerReservationSave reservationSave,Model model){
+    public String vDatePerSave(@PathVariable("now_date")String now_date,@ModelAttribute("reservationSave")DinnerReservationSave reservationSave,
+                               HttpServletRequest request,HttpServletResponse response,Model model) throws IOException {
         Integer lastQty = service.findLastQty(now_date);
+        if(lastQty<=0){
+            ex("예약 마감된 일자 입니다.",request,response);
+        }
         reservationSave.setVisit_date(now_date);
         model.addAttribute("hiddenQty",lastQty);
-        return "view2/SaveForm";
+        return "dinner/SaveForm";
+    }
+
+        private void ex(String message, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String referURL = request.getHeader("REFERER");
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.println("<script>alert('"+message+"'); location.redirect='dinner/info/dateOfQty';</script>");
+        out.flush();
     }
 
 
@@ -152,7 +160,7 @@ public class DinnerController {
 
         model.addAttribute("hiddenQty",lastQty);
         if(bindingResult.hasErrors()){
-            return "view2/SaveForm";
+            return "dinner/SaveForm";
         }
         Long savedId = service.save(reservationSave);
         Employee employee = employeeService.findByLoginId(reservationSave.getLoginId());
@@ -179,7 +187,7 @@ public class DinnerController {
     public String detailView(@PathVariable("id")Long id,Model model){
         DinnerReservation reservation = service.findOne(id);
         model.addAttribute("reservation",reservation);
-        return "view2/ViewOne";
+        return "dinner/ViewOne";
     }
 
 
@@ -191,21 +199,26 @@ public class DinnerController {
                 (before.getId(),before.getLoginId(),before.getEmployee_name(),before.getPhone_number(),before.getVisit_date(),before.getContents()
                         ,before.getQty());
 
-        Integer lastQty = service.findLastQty(before.getVisit_date());
+        Integer lastQty = service.findLastQty( service.findOne(id).getVisit_date())+reservation.getQty();
         model.addAttribute("hiddenQty",lastQty);
 
 
         model.addAttribute("reservation",reservation);
         model.addAttribute("hiddenValue",reservation.getVisit_date());
-        return "view2/UpdateForm";
+        return "dinner/UpdateForm";
 
     }
 
     @PostMapping("/update/{id}")
-    public String updateView2(@PathVariable("id")Long id,@Valid @ModelAttribute("reservation")DinnerReservationUpdate reservation,BindingResult bindingResult){
+    public String updateView2(@PathVariable("id")Long id,@Valid @ModelAttribute("reservation")DinnerReservationUpdate reservation,BindingResult bindingResult,
+                              Model model){
+        Integer lastQty = service.findLastQty( service.findOne(id).getVisit_date())+reservation.getQty();
+        model.addAttribute("hiddenQty",lastQty);
+
         if(bindingResult.hasErrors()){
-            return "view2/UpdateForm";
+            return "dinner/UpdateForm";
         }
+
         service.updateInfo(reservation);
         return  "redirect:/dinner/info/{id}";
     }
@@ -272,7 +285,7 @@ public class DinnerController {
 
     @GetMapping("/checkInfo")
     public String checkedDinnerInfo(){
-        return "view2/checkInfo";
+        return "dinner/checkInfo";
     }
 
     @PostMapping("/checkInfo")
